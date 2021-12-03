@@ -2,23 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <title>Treasure Hunt</title>
 
-<body style="margin : 0px; overflow: hidden;">
-<!-- include A-Frame obviously -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+	<!-- include A-Frame obviously -->
 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 <!-- include ar.js for A-Frame -->
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+<script src="js/idb.js"></script>
+<script src="js/interaction.js"></script>
+	<script src="js/idb.js"></script>
+	<script src="js/idb.js"></script>
 
-<a-scene embedded arjs>
-    <a-entity rotation="0 90" scale="1 1 1">
-        <!-- create your content here. just a box for now -->
-        <a-entity gltf-model="Models/skull/scene.gltf"></a-entity>
-    </a-entity>
-    <!-- define a camera which will move according to the marker position -->
-    <a-marker-camera preset="hiro"></a-marker-camera>
-</a-scene>
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <div class="speech-bubble" style="z-index:1; font-size:50px"></div>
+	
+  <a-scene embedded arjs cursor="rayOrigin: mouse" accepts-clicks>
+
+<!-- below is for content -->
+<a-assets>
+    <a-asset-item id="treasureChest" src="Models/treasure/scene.gltf"></a-asset-item>
+</a-assets>
+
+<!-- scale values allow you to adjust the file’s display size, gltf-model=“#your file name“ -->
+
+    <a-marker preset="pattern" type="pattern" url="images/pattern-treasureChest.patt" id ="treasureModel">
+    <a-entity position="0 0 0" scale="0.0001 0.0001 0.0001"  gltf-model="#treasureChest">
+	  </a-entity>
+    </a-marker>
+    
+    <a-entity camera></a-entity>
+    </a-scene>
 </body>
-
 </html>
