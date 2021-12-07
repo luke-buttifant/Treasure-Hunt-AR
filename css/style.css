@@ -6,15 +6,19 @@
 	bottom: 50px;
 	right: 10px;
 	left: 10px;
-    min-height: 20%;
+    min-height: 5%;
 	background: #004431;
 	color: #0f4;
-	font-size: 28px;
+	font-size: 15px!important;
     border-radius: .4em;
 	padding: 20px;
-    display: none;
+	display: none;
 }
 
+body{
+	background-color: #AAFFEB;
+	
+}
 .speech-bubble:after {
 	content: '';
 	position: absolute;
@@ -36,4 +40,51 @@
 
 .a-enter-vr {
 	display: none;
+}
+
+.addHintBtn{
+	z-index: 1;
+	width: 100%!important;
+}
+
+.arjs{
+	text-align: center;
+	height: 90vh;
+}
+
+@media all and (max-width: 600px) {
+/* CSS rules here for screens lower than 750px */
+	.arjs{
+	text-align: center;
+	height: 80vh;
+}
+	
+	.speech-bubble {
+	position: absolute;
+	width: 80%;
+	margin: 0 auto;
+	bottom: 50px;
+	right: 10px;
+	left: 10px;
+    min-height: 2%;
+	background: #004431;
+	color: #0f4;
+	font-size: 10px!important;
+    border-radius: .4em;
+	padding: 20px;
+	display: none;
+}
+}
+
+.addHintRows{
+	margin: 10px;
+}
+
+#levelIllustration{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	background: #000000;
+	color: white;
+	font-size: 20px;
 }
