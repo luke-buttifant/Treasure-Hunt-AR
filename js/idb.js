@@ -4,6 +4,13 @@ let db;
 const indexedDB = window.indexedDB;
 const request = indexedDB.open("treasureHuntDB", 1);
 
+function getLevel(){
+	var levelIllustration = document.getElementById('iframe').contentWindow.document.getElementById('levelIllustration');
+	var split = levelIllustration.innerHTML.split(' ');
+	var level = split[1];
+	return level;
+}
+
 request.onsuccess = function(e) {
     alert("Successfully opened the database!");
     db = e.target.result;
@@ -40,7 +47,6 @@ function displayMessage(message){
 }
 
 window.onload = function () {
-	console.log("Map Level " + globalVariabe.level);
 	//ADD A Hint
 	document.getElementById('saveChanges').addEventListener('click', e=> {
 		const u = document.getElementById('usernameInput').value;
@@ -62,14 +68,14 @@ window.onload = function () {
 	
 		//SHOW HINTS
 	document.getElementById('showHintsBtn').addEventListener('click', e=> {
+	level = getLevel();
 	const transaction = db.transaction("hints");
 	const objectStore = transaction.objectStore("hints");
 	const request = objectStore.openCursor();
 	html = "";
 	request.onsuccess = e => {
 		var cursor = e.target.result;
-		console.log("global Variable" + globalVariabe.level);
-		if(cursor.value.level == globalVariabe.level) {
+		if(cursor.value.level == level) {
 			html += `<div class="row"><div class="col"><b>Username: </b>${cursor.value.playerName}</div><div class="col"><b>Hint: </b>${cursor.value.hint}</div><div class="col">${cursor.value.longitude}</div><div class="col">${cursor.value.latitude}</div></div><div class="row"><hr></div>`;
 			cursor.continue();
 		} else {

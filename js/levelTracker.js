@@ -16,7 +16,7 @@ window.onload = function () {
 	//NEED TO MAKE THESE INTO ONE SHORT FUNCTION
   marker1.addEventListener('markerFound', () => {
 	  if(globalVariabe.level == 1){
-		  globalVariabe.level ++;
+		  globalVariabe.level = 2;
 	  }
     var levelill = document.getElementById("levelIllustration");
     levelill.innerHTML = "Level " + globalVariabe.level;

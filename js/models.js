@@ -34,13 +34,13 @@ var locations = [
         name: 'Clue2',
         Lat: '',
         Long: '',
-        NearbyDialogue: 'You are very close to clue two!'
+        NearbyDialogue: 'You are Within 5 metres of the second clue!'
       },
 			{
         name: 'Clue3',
         Lat: '',
         Long: '',
-        NearbyDialogue: 'You are very close to clue two!'
+        NearbyDialogue: 'You are Within 5 metres of the third clue!'
       },
 			{
         name: 'treasure',
