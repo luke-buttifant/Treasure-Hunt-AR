@@ -21,12 +21,14 @@
 <body style="margin : 0px; overflow: hidden;">
 <div id="speechBubble" class="speech-bubble" style="z-index:1; font-size:50px"></div>
 	<div id="levelIllustration">Level 1</div>
+	<div id="currentLatLong"></div>
 <a-scene id="scene" embedded arjs="trackingMethod: best;" cursor="rayOrigin: mouse" accepts-clicks> 
   <!-- below is for content -->
   <a-assets>
     <a-asset-item id="model1" src="Models/cluetwo/scene.gltf"></a-asset-item>
 	<a-asset-item id="model2" src="Models/clueTwo/scene.gltf"></a-asset-item>
 	<a-asset-item id="model3" src="Models/treasure/scene.gltf"></a-asset-item>
+	<a-asset-item id="arrow" src="Models/arrow/scene.gltf"></a-asset-item>
   </a-assets>
  
 	
@@ -39,7 +41,12 @@
 </a-marker>
 <a-marker type="pattern" url="images/pattern-marker (2).patt" id="marker3">
 </a-marker>
-  <a-entity camera></a-entity>
+  <a-entity camera>
+<!--
+	<a-entity rotation="0 0 0" position="0 -0.5 0" scale="0.0001 0.0001 0.0001"  gltf-model="#arrow">
+    </a-entity>
+-->
+	</a-entity>
 </a-scene>
 
 </body>

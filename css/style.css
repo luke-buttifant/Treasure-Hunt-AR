@@ -88,3 +88,12 @@ body{
 	color: white;
 	font-size: 20px;
 }
+
+#currentLatLong{
+	position: absolute;
+	bottom: 0%;
+	left: 0%;
+	background: #000000;
+	color: white;
+	font-size: 10px!important;
+}

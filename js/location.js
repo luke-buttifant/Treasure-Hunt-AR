@@ -8,10 +8,10 @@ else {
 }
 
 navigator.geolocation.watchPosition(function(position) {
-  console.log("current lat " + position.coords.latitude); 
-  console.log('currentLon ' + position.coords.longitude);
+	var currentLatLongDiv = document.getElementById("currentLatLong");
+  currentLatLongDiv.innerHTML = ("Lat: " + position.coords.latitude); 
+  currentLatLongDiv.innerHTML += (" Long: " + position.coords.longitude); 
 	showNearby(globalVariabe.level, position);
-
 });
 
 
