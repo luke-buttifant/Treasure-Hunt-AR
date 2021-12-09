@@ -25,6 +25,5 @@ Contributors names
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
 * [AFRAME](https://aframe.io/releases/1.2.0/aframe.min.js)
 * [AR.js](https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js)
