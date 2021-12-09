@@ -16,11 +16,11 @@ navigator.geolocation.watchPosition(function(position) {
 
 
 function showNearby(level, position){
-	var distanceAway = calculateDistance(position.coords.latitude, position.coords.longitude, locations[level - 1].Lat, locations[level - 1].Long) * 1000
+	var distanceAway = calculateDistance(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long) * 1000
 	console.log("The clue is: " + (distanceAway) + " metres away");
 		if(distanceAway <= 5){
 			const speechbubble = document.getElementById("speechBubble");
-	       speechbubble.innerHTML = locations[level - 1].NearbyDialogue;
+	       speechbubble.innerHTML = markers[level - 1].NearbyDialogue;
 			speechbubble.style.display = "block";
 	   }
 }

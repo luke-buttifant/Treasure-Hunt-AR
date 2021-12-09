@@ -11,7 +11,7 @@
 <!-- include A-Frame obviously --> 
 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> 
 <!-- include ar.js for A-Frame --> 
-<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> 
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <script src="js/levelTracker.js"></script>
 <script src="js/models.js"></script>
 <script src="js/location.js"></script>
@@ -25,8 +25,8 @@
 <a-scene id="scene" embedded arjs="trackingMethod: best;" cursor="rayOrigin: mouse" accepts-clicks> 
   <!-- below is for content -->
   <a-assets>
-    <a-asset-item id="model1" src="Models/cluetwo/scene.gltf"></a-asset-item>
-	<a-asset-item id="model2" src="Models/clueTwo/scene.gltf"></a-asset-item>
+    <a-asset-item id="model1" src="Models/letter/scene.gltf"></a-asset-item>
+	<a-asset-item id="model2" src="Models/coinBag/scene.gltf"></a-asset-item>
 	<a-asset-item id="model3" src="Models/treasure/scene.gltf"></a-asset-item>
 	<a-asset-item id="arrow" src="Models/arrow/scene.gltf"></a-asset-item>
   </a-assets>
@@ -34,7 +34,7 @@
 	
 <!--markerhandler-->
 <a-marker preset="hiro" id="marker1">
-    <a-entity rotation="90 0 0" position="0 0 0" scale="0.0006 0.0006 0.0006"  gltf-model="#model1">
+    <a-entity rotation="180 270 90" scale="0.5 0.5 0.5"  gltf-model="#model1">
     </a-entity>
   </a-marker>
 <a-marker preset="kanji" id="marker2">
