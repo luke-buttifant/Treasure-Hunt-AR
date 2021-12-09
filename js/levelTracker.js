@@ -34,16 +34,28 @@ window.onload = function () {
     }
   });
 
+marker4.addEventListener('markerFound', () => {
+    var marker4 = document.getElementById("marker4");
+    if (globalVariabe.level == 4) {
+      globalVariabe.level = 5;
+      progressLevel(marker4);
+    }
+  });
+
 }
 
 function progressLevel(marker) {
   var speechbubble = document.getElementById("speechBubble");
   markerNumber = (globalVariabe.level - 2)
   marker.innerHTML = `<a-entity position="${markers[markerNumber].modelPosition}" rotation="${markers[markerNumber].modelRotation}" scale="${markers[markerNumber].modelScale}" gltf-model="${markers[markerNumber].modelSrc}"></a-entity>`;
-  console.log("marker Inner" + marker.innerHTML);
-	
   var levelill = document.getElementById("levelIllustration");
   levelill.innerHTML = "Level " + globalVariabe.level;
+	if(globalVariabe.level == 4){
+		  levelill.innerHTML = "Final Level";
+	}
+	if(globalVariabe.level == 5){
+		  levelill.innerHTML = "You Win!";
+	}
   speechbubble.innerHTML = markers[globalVariabe.level - 2].successDialogue;
   speechbubble.style.display = "block";
   speechbubble.addEventListener('click', function () {

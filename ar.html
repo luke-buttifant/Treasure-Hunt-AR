@@ -25,21 +25,21 @@
 <a-scene id="scene" embedded arjs="trackingMethod: best;" cursor="rayOrigin: mouse" accepts-clicks> 
   <!-- below is for content -->
   <a-assets>
-    <a-asset-item id="model1" src="Models/letter/scene.gltf"></a-asset-item>
-	<a-asset-item id="model2" src="Models/coinBag/scene.gltf"></a-asset-item>
-	<a-asset-item id="model3" src="Models/treasure/scene.gltf"></a-asset-item>
-	<a-asset-item id="arrow" src="Models/arrow/scene.gltf"></a-asset-item>
+    <a-asset-item id="model1" src="Models/car/scene.gltf"></a-asset-item>
+	<a-asset-item id="model2" src="Models/chocolate/scene.gltf"></a-asset-item>
+	<a-asset-item id="model3" src="Models/footballBoot/scene.gltf"></a-asset-item>
+	<a-asset-item id="model4" src="Models/treasureChest/scene.gltf"></a-asset-item>
   </a-assets>
  
 	
 <!--markerhandler-->
 <a-marker preset="hiro" id="marker1">
-    <a-entity rotation="180 270 90" scale="0.5 0.5 0.5"  gltf-model="#model1">
-    </a-entity>
   </a-marker>
 <a-marker preset="kanji" id="marker2">
 </a-marker>
-<a-marker type="pattern" url="images/pattern-marker (2).patt" id="marker3">
+<a-marker type="pattern" url="images/arjs.patt" id="marker3">
+</a-marker>
+<a-marker type="pattern" url="images/pMarker.patt" id="marker4">
 </a-marker>
   <a-entity camera>
 <!--

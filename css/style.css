@@ -97,3 +97,27 @@ body{
 	color: white;
 	font-size: 10px!important;
 }
+
+body#gameMenu{
+	background-image: url("../images/backgroundDoctored.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+}
+
+.menuItem{
+	margin: 10px;
+}
+
+.main{
+	margin-top: 100px;
+	width: 50%;
+}
+.btn{
+	color: white!important;
+}
+
+a{
+	text-decoration: none;
+	color: white!important;
+}

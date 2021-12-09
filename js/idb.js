@@ -31,9 +31,9 @@ request.onupgradeneeded = e=> {
     objectStore.createIndex("hint", "hint", { unique: false } );
 
     const hints = [
-        { index: "0", playerName: "Admin", level: "1", hint: "Level 1 Hint", longitude: 0 , latitude: 0},
-        { index: "-1", playerName: "Admin", level: "2", hint: "Level 2 Hint", longitude: 0 , latitude: 0},
-        { index: "-2", playerName: "Admin", level: "3", hint: "Level 3 Hint", longitude: 0 , latitude: 0}
+        { index: "0", playerName: "Admin", level: "1", hint: "Level 1 Hint", longitude: markers[0].Long , latitude: markers[0].Lat},
+        { index: "-1", playerName: "Admin", level: "2", hint: "Level 2 Hint", longitude: markers[1].Long , latitude: markers[1].Lat},
+        { index: "-2", playerName: "Admin", level: "3", hint: "Level 3 Hint", longitude: markers[2].Long , latitude: markers[2].Lat}
                     ];
 
     for(let i=0; i<hints.length; i++) {
@@ -76,7 +76,7 @@ window.onload = function () {
 	request.onsuccess = e => {
 		var cursor = e.target.result;
 		if(cursor.value.level == level) {
-			html += `<div class="row"><div class="col"><b>Username: </b>${cursor.value.playerName}</div><div class="col"><b>Hint: </b>${cursor.value.hint}</div><div class="col">${cursor.value.longitude}</div><div class="col">${cursor.value.latitude}</div></div><div class="row"><hr></div>`;
+			html += `<div class="row"><div class="col"><b>Username: </b>${cursor.value.playerName}</div><div class="col"><b>Hint: </b>${cursor.value.hint}</div><div class="col">Long: ${cursor.value.longitude}</div><div class="col">Lat: ${cursor.value.latitude}</div></div><div class="row"><hr></div>`;
 			cursor.continue();
 		} else {
 			displayMessage(html);

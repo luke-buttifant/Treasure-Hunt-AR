@@ -10,7 +10,19 @@ map.on("click", e => {
 	const latInput = document.getElementById("latInput");
 	const longInput = document.getElementById("longInput");
 	
-	longInput.value = e.latlng.lat;
-    latInput.value = e.latlng.lng;
+	lat = e.latlng.lat;
+	latRounded = lat.toFixed(8);
+	
+	long = e.latlng.lng;
+	longRounded = long.toFixed(8);
+	
+	longInput.value = latRounded;
+    latInput.value = longRounded;
 });
 
+var modal = document.getElementById('addHintModal')
+modal.addEventListener('shown.bs.modal', function () {
+  setTimeout(function() {
+    map.invalidateSize();
+  }, 100);
+})
