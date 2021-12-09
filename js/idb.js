@@ -21,6 +21,8 @@ request.onerror = function(e) {
 }
 
 request.onupgradeneeded = e=> {
+
+	
     const db = e.target.result; // IDBDatabase instance
 
     const objectStore = db.createObjectStore("hints", {
@@ -33,7 +35,8 @@ request.onupgradeneeded = e=> {
     const hints = [
         { index: "0", playerName: "Admin", level: "1", hint: "Level 1 Hint", longitude: markers[0].Long , latitude: markers[0].Lat},
         { index: "-1", playerName: "Admin", level: "2", hint: "Level 2 Hint", longitude: markers[1].Long , latitude: markers[1].Lat},
-        { index: "-2", playerName: "Admin", level: "3", hint: "Level 3 Hint", longitude: markers[2].Long , latitude: markers[2].Lat}
+        { index: "-2", playerName: "Admin", level: "3", hint: "Level 3 Hint", longitude: markers[2].Long , latitude: markers[2].Lat},
+		{ index: "-3", playerName: "Admin", level: "4", hint: "Level 4 Hint", longitude: markers[3].Long , latitude: markers[3].Lat}
                     ];
 
     for(let i=0; i<hints.length; i++) {

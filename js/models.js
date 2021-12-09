@@ -17,7 +17,7 @@ var markers = [{
     successDialogue: 'Congratulations, You have found the second clue!',
     modelSrc: '#model2',
     modelScale: '0.3 0.3 0.3',
-    modelPosition: '0 0 0.8',
+    modelPosition: '0 0 0',
     modelRotation: '0 0 0',
     Lat: '50.901439',
     Long: '-1.404087'
