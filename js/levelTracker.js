@@ -7,6 +7,7 @@ window.onload = function () {
   var marker2 = document.getElementById("marker2");
   var marker3 = document.getElementById("marker3");
 
+
   marker1.addEventListener('markerFound', () => {
     var marker1 = document.getElementById('marker1');
     if (globalVariabe.level == 1) {
@@ -55,6 +56,7 @@ function progressLevel(marker) {
 	}
 	if(globalVariabe.level == 5){
 		  levelill.innerHTML = "You Win!";
+
 	}
   speechbubble.innerHTML = markers[globalVariabe.level - 2].successDialogue;
   speechbubble.style.display = "block";
@@ -63,6 +65,15 @@ function progressLevel(marker) {
     speechbubble.innerHTML = markers[globalVariabe.level - 2].clue;
     speechbubble.addEventListener('click', function () {
       speechbubble.style.display = "none";
-    })
+		if(globalVariabe.level == 5){
+		var restartBtn = document.getElementById("restartBtn");
+		restartBtn.style.display = "flex";
+			restartBtn.onclick = function(){
+				location.reload();
+			}
+			}
+		});
+ 
   })
 }
+

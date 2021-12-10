@@ -1,5 +1,15 @@
 const map = L.map ("map1");
 const attrib="Map data copyright OpenStreetMap contributors, Open Database Licence";
+var marker = {};
+
+var customIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
 L.tileLayer
         ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -16,6 +26,12 @@ map.on("click", e => {
 	long = e.latlng.lng;
 	longRounded = long.toFixed(8);
 	
+	if(marker != undefined){
+		map.removeLayer(marker);
+	}
+	
+	marker = L.marker([lat, long], {icon: customIcon}).addTo(map);
+
 	longInput.value = latRounded;
     latInput.value = longRounded;
 });
