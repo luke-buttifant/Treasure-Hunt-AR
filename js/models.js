@@ -50,5 +50,6 @@ var markers = [{
 
 var globalVariabe = {
   level: 1,
+	bearing: 0
 };
 

@@ -7,6 +7,18 @@ else {
   console.log('Geolocation is not supported.');
 }
 
+function onOrientation(event) {
+	
+const arrowEntity = document.getElementById("arrowEntity");
+        var rotate = 'rotate(' + event.gamma + 'deg)';
+        var scale = 'scale(' + ((event.beta/180)*2 + 1) + ')';
+		var realBearing = (globalVariabe.bearing - event.alpha);
+		arrowEntity.setAttribute("rotation",  '0 ' + realBearing + ' 0')
+	
+}
+
+window.addEventListener('deviceorientation', onOrientation);
+
 navigator.geolocation.watchPosition(function(position) {
 	var currentLatLongDiv = document.getElementById("currentLatLong");
   currentLatLongDiv.innerHTML = ("Lat: " + position.coords.latitude.toFixed(8)); 
@@ -19,8 +31,8 @@ function showNearby(level, position){
 	const arrowEntity = document.getElementById("arrowEntity");
 	var distanceAway = calculateDistance(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long ) * 1000
 	console.log("The clue is: " + (distanceAway) + " metres away");
-	var bearing = calculateBearing(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long )
-	arrowEntity.setAttribute("rotation",  '0 ' + bearing + ' 0')
+	globalVariabe.bearing = calculateBearing(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long )
+	
 		if(distanceAway <= 5){
 			const speechbubble = document.getElementById("speechBubble");
 	       speechbubble.innerHTML = markers[level - 1].dialogue;
