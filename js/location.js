@@ -30,7 +30,6 @@ navigator.geolocation.watchPosition(function(position) {
 function showNearby(level, position){
 	const arrowEntity = document.getElementById("arrowEntity");
 	var distanceAway = calculateDistance(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long ) * 1000
-	console.log("The clue is: " + (distanceAway) + " metres away");
 	globalVariabe.bearing = calculateBearing(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long )
 	
 		if(distanceAway <= 5){
