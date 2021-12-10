@@ -3,6 +3,13 @@
 const AFRAME = window.AFRAME;
 
 window.onload = function () {
+		const helpModeBtn = document.getElementById('helpMode');
+	var clicked = false;
+helpModeBtn.addEventListener("click", function(){
+	const arrowEntity = document.getElementById("arrowEntity");
+	clicked = !clicked
+	arrowEntity.setAttribute('visible', clicked);
+})
   var marker1 = document.getElementById('marker1');
   var marker2 = document.getElementById("marker2");
   var marker3 = document.getElementById("marker3");

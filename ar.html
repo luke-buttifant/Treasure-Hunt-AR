@@ -15,6 +15,7 @@
 <script src="js/levelTracker.js"></script>
 <script src="js/models.js"></script>
 <script src="js/location.js"></script>
+<script src="js/helpArrow.js"></script>
 
 
 </head>
@@ -23,6 +24,10 @@
 	<div id="levelIllustration">Level 1</div>
 	<div id="currentLatLong"></div>
 	<button type="button" id="restartBtn" class="button-64"><span class="text">Restart</span></button>
+	<div class="centered">
+    <button id="helpMode">?</button>
+	</div>
+	
 <a-scene id="scene" embedded arjs="trackingMethod: best;" cursor="rayOrigin: mouse" accepts-clicks> 
   <!-- below is for content -->
   <a-assets>
@@ -30,6 +35,7 @@
 	<a-asset-item id="model2" src="Models/chocolate/scene.gltf"></a-asset-item>
 	<a-asset-item id="model3" src="Models/footballBoot/scene.gltf"></a-asset-item>
 	<a-asset-item id="model4" src="Models/treasureChest/scene.gltf"></a-asset-item>
+	<a-asset-item id="arrow" src="Models/arrow/scene.gltf"></a-asset-item>
   </a-assets>
  
 	
@@ -43,10 +49,9 @@
 <a-marker type="pattern" url="images/pMarker.patt" id="marker4">
 </a-marker>
   <a-entity camera>
-<!--
-	<a-entity rotation="0 0 0" position="0 -0.5 0" scale="0.0001 0.0001 0.0001"  gltf-model="#arrow">
+	<a-entity id="arrowEntity" rotation="0 0 0" position="0 0 -1" scale="0.5 0.5 0.5"  gltf-model="#arrow" visible="false">
     </a-entity>
--->
+
 	</a-entity>
 </a-scene>
 </body>

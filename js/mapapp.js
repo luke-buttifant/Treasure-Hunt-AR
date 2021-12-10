@@ -36,8 +36,8 @@ map.on("click", e => {
 	
 	marker = L.marker([lat, long], {icon: customIcon}).addTo(map);
 
-	longInput.value = latRounded;
-    latInput.value = longRounded;
+	longInput.value = longRounded;
+    latInput.value = latRounded;
 });
 
 var modal = document.getElementById('addHintModal')
