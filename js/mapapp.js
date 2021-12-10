@@ -14,8 +14,12 @@ var customIcon = new L.Icon({
 L.tileLayer
         ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             { attribution: attrib } ).addTo(map);
-            
-map.setView([50.908, -1.4], 14);
+
+navigator.geolocation.getCurrentPosition(function(position){
+	map.setView([position.coords.latitude, position.coords.longitude], 30);
+});
+
+
 map.on("click", e => {
 	const latInput = document.getElementById("latInput");
 	const longInput = document.getElementById("longInput");

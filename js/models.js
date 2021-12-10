@@ -49,5 +49,6 @@ var markers = [{
 ];
 
 var globalVariabe = {
-  level: 1
+  level: 1,
 };
+
