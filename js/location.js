@@ -12,7 +12,7 @@ function onOrientation(event) {
 const arrowEntity = document.getElementById("arrowEntity");
         var rotate = 'rotate(' + event.gamma + 'deg)';
         var scale = 'scale(' + ((event.beta/180)*2 + 1) + ')';
-		var realBearing = (globalVariabe.bearing - event.alpha);
+		var realBearing = (globalVariable.bearing - event.alpha);
 		arrowEntity.setAttribute("rotation",  '0 ' + realBearing + ' 0')
 	
 }
@@ -23,14 +23,14 @@ navigator.geolocation.watchPosition(function(position) {
 	var currentLatLongDiv = document.getElementById("currentLatLong");
   currentLatLongDiv.innerHTML = ("Lat: " + position.coords.latitude.toFixed(8)); 
   currentLatLongDiv.innerHTML += (" Long: " + position.coords.longitude.toFixed(8));
-	showNearby(globalVariabe.level, position);
+	showNearby(globalVariable.level, position);
 });
 
 
 function showNearby(level, position){
 	const arrowEntity = document.getElementById("arrowEntity");
 	var distanceAway = calculateDistance(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long ) * 1000
-	globalVariabe.bearing = calculateBearing(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long )
+	globalVariable.bearing = calculateBearing(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long )
 	
 		if(distanceAway <= 5){
 			const speechbubble = document.getElementById("speechBubble");

@@ -48,8 +48,11 @@ var markers = [{
   }
 ];
 
-var globalVariabe = {
+var globalVariable = {
   level: 1,
-	bearing: 0
+  bearing: 0,
+  startTime: null, 
+  endTime: null,
+  useHelpMode: false
 };
 
