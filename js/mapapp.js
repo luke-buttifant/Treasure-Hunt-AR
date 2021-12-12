@@ -1,5 +1,5 @@
-const map = L.map ("map1");
-const attrib="Map data copyright OpenStreetMap contributors, Open Database Licence";
+const map = L.map("map1");
+const attrib = "Map data copyright OpenStreetMap contributors, Open Database Licence";
 var marker = {};
 
 var customIcon = new L.Icon({
@@ -11,38 +11,40 @@ var customIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
-L.tileLayer
-        ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            { attribution: attrib } ).addTo(map);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: attrib
+}).addTo(map);
 
-navigator.geolocation.getCurrentPosition(function(position){
-	map.setView([position.coords.latitude, position.coords.longitude], 30);
+navigator.geolocation.getCurrentPosition(function (position) {
+  map.setView([position.coords.latitude, position.coords.longitude], 30);
 });
 
 
 map.on("click", e => {
-	const latInput = document.getElementById("latInput");
-	const longInput = document.getElementById("longInput");
-	
-	lat = e.latlng.lat;
-	latRounded = lat.toFixed(8);
-	
-	long = e.latlng.lng;
-	longRounded = long.toFixed(8);
-	
-	if(marker != undefined){
-		map.removeLayer(marker);
-	}
-	
-	marker = L.marker([lat, long], {icon: customIcon}).addTo(map);
+  const latInput = document.getElementById("latInput");
+  const longInput = document.getElementById("longInput");
 
-	longInput.value = longRounded;
-    latInput.value = latRounded;
+  lat = e.latlng.lat;
+  latRounded = lat.toFixed(8);
+
+  long = e.latlng.lng;
+  longRounded = long.toFixed(8);
+
+  if (marker != undefined) {
+    map.removeLayer(marker);
+  }
+
+  marker = L.marker([lat, long], {
+    icon: customIcon
+  }).addTo(map);
+
+  longInput.value = longRounded;
+  latInput.value = latRounded;
 });
 
 var modal = document.getElementById('addHintModal')
 modal.addEventListener('shown.bs.modal', function () {
-  setTimeout(function() {
+  setTimeout(function () {
     map.invalidateSize();
   }, 100);
 })
