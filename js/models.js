@@ -7,8 +7,8 @@ var markers = [{
     modelScale: '0.003 0.003 0.003',
     modelPosition: '0 0 0',
     modelRotation: '180 270 90',
-    Lat: '50.900543',
-    Long: '-1.403948'
+    Lat: '50.90218031',
+    Long: '-1.40400499'
   },
   {
     name: '2',
@@ -45,12 +45,25 @@ var markers = [{
     modelRotation: '0 -90 40',
     Lat: '50.898104',
     Long: '-1.403734',
+  },
+			     {
+    name: 'Introduction',
+    dialogue: 'Hello! There are 4 markers placed around you. Find the first one to be able to progress to the next level! Your score will be based on the amount of time the hunt takes you to complete. Click this to view the first clue, Goodluck!',
+    clue: ' If you ever want one of these, then a license you must get, this transport’s spelled with three letters, but it isn’t called a jet. What am I?',
+    successDialogue: '',
+    modelSrc: '',
+    modelScale: '',
+    modelPosition: '',
+    modelRotation: '',
+    Lat: '',
+    Long: '',
   }
+			   
 ];
 
 var globalVariable = {
   level: 1,
-  bearing: 0,
+  bearing: '0',
   startTime: null, 
   endTime: null,
   useHelpMode: false

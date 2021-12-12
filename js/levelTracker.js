@@ -3,6 +3,16 @@
 const AFRAME = window.AFRAME;
 
 window.onload = function () {
+	var speechbubble = document.getElementById("speechBubble");
+	speechbubble.innerHTML = markers[4].dialogue;
+  speechbubble.style.display = "block";
+    speechbubble.addEventListener('click', function () {
+      speechbubble.innerHTML = markers[4].clue;
+    speechbubble.addEventListener('click', function () {
+      speechbubble.style.display = "none";
+	});
+	});
+	
 	
 	globalVariable.startTime = new Date();
 	
