@@ -81,8 +81,7 @@ function displayMessage(message) {
 window.onload = function () {
   //ADD A Hint
   document.getElementById('saveChanges').addEventListener('click', e => {
-	function addToDB(){
-		    const u = document.getElementById('usernameInput').value;
+	const u = document.getElementById('usernameInput').value;
     const n = document.getElementById('levelInput').value;
     const c = document.getElementById('hintInput').value;
     const long = document.getElementById('latInput').value;
@@ -104,8 +103,7 @@ window.onload = function () {
       alert(`ERROR ${e.target.errorCode}`);
     };
 	}
-  });
-
+	)
   //SHOW HINTS
   document.getElementById('showHintsBtn').addEventListener('click', e => {
     level = getLevel();
