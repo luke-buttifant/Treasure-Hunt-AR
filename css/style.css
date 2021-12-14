@@ -171,10 +171,12 @@ a {
   background-color: rgba(5, 6, 45, 0.2);
 }
 #restartBtn {
-  position: absolute;
-  z-index: 1;
+    position: fixed;
   top: 50%;
-  left: 37.5%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  z-index: 1;
   width: 25% !important;
   display: none;
 }
@@ -204,4 +206,8 @@ a {
   color: white;
   outline: none;
   z-index: 1;
+}
+
+.modal-body{
+	font-size: 10px;
 }

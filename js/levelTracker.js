@@ -78,15 +78,7 @@ function progressLevel(marker) {
     levelill.innerHTML = "Final Level";
   }
   if (globalVariable.level == 5) {
-    globalVariable.endTime = new Date();
-    var timeTaken = globalVariable.endTime - globalVariable.startTime;
-    timeTaken /= 1000;
-    var seconds = Math.round(timeTaken);
-    if (globalVariable.useHelpMode == false) {
-      levelill.innerHTML = "You Win! Score: " + (seconds * 1000);
-    } else {
-      levelill.innerHTML = "You Win! Reduced Score: " + (seconds * 1000) / 2;
-    }
+	  calculateScore(levelill);
 
   }
   speechbubble.innerHTML = markers[globalVariable.level - 2].successDialogue;
@@ -106,4 +98,16 @@ function progressLevel(marker) {
     });
 
   })
+}
+
+function calculateScore(levelill){
+	globalVariable.endTime = new Date();
+    var timeTaken = globalVariable.endTime - globalVariable.startTime;
+    timeTaken /= 1000;
+    var seconds = Math.round(timeTaken);
+    if (globalVariable.useHelpMode == false) {
+      levelill.innerHTML = "You Win! Score: " + (seconds * 1000);
+    } else {
+      levelill.innerHTML = "You Win! Reduced Score: " + (seconds * 1000) / 2;
+    }
 }

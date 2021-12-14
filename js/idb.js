@@ -81,7 +81,8 @@ function displayMessage(message) {
 window.onload = function () {
   //ADD A Hint
   document.getElementById('saveChanges').addEventListener('click', e => {
-    const u = document.getElementById('usernameInput').value;
+	function addToDB(){
+		    const u = document.getElementById('usernameInput').value;
     const n = document.getElementById('levelInput').value;
     const c = document.getElementById('hintInput').value;
     const long = document.getElementById('latInput').value;
@@ -102,6 +103,7 @@ window.onload = function () {
     request.onerror = e => {
       alert(`ERROR ${e.target.errorCode}`);
     };
+	}
   });
 
   //SHOW HINTS
@@ -114,7 +116,7 @@ window.onload = function () {
     request.onsuccess = e => {
       var cursor = e.target.result;
       if (cursor.value.level == level) {
-        html += `<div class="row"><div class="col"><b>Username: </b>${cursor.value.playerName}</div><div class="col"><b>Hint: </b>${cursor.value.hint}</div><div class="col">Long: ${cursor.value.longitude}</div><div class="col">Lat: ${cursor.value.latitude}</div></div><div class="row"><hr></div>`;
+        html += `<div class="row"><div class="col"><b>Username: </b>${cursor.value.playerName}</div><div class="col"><b>Hint: </b>${cursor.value.hint}</div><div class="col"><strong>Long: </strong>${cursor.value.longitude}</div><div class="col"><strong>Lat: </strong>${cursor.value.latitude}</div></div><div class="row"><hr></div>`;
         cursor.continue();
       } else {
         displayMessage(html);

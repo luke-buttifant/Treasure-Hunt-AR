@@ -11,17 +11,18 @@ function onOrientation(event) {
   const arrowEntity = document.getElementById("arrowEntity");
   var rotate = 'rotate(' + event.gamma + 'deg)';
   var scale = 'scale(' + ((event.beta / 180) * 2 + 1) + ')';
-  var realBearing = (globalVariable.bearing - event.alpha);
-  arrowEntity.setAttribute("rotation", '0 ' + realBearing + ' 0')
+  var newBearing = (globalVariable.bearing - event.alpha) - 90;
 
+  arrowEntity.setAttribute('rotation',{
+	  x: 0, 
+	  y: newBearing,
+	  z: 0
+  });
 }
 
 window.addEventListener('deviceorientation', onOrientation);
 
 navigator.geolocation.watchPosition(function (position) {
-  var currentLatLongDiv = document.getElementById("currentLatLong");
-  currentLatLongDiv.innerHTML = ("Lat: " + position.coords.latitude.toFixed(8));
-  currentLatLongDiv.innerHTML += (" Long: " + position.coords.longitude.toFixed(8));
   showNearby(globalVariable.level, position);
 });
 
@@ -30,12 +31,20 @@ function showNearby(level, position) {
   const arrowEntity = document.getElementById("arrowEntity");
   var distanceAway = calculateDistance(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long) * 1000
   globalVariable.bearing = calculateBearing(position.coords.latitude, position.coords.longitude, markers[level - 1].Lat, markers[level - 1].Long)
-
+	
+  var currentLatLongDiv = document.getElementById("currentLatLong");
+  currentLatLongDiv.innerHTML = ("Lat: " + position.coords.latitude.toFixed(8));
+  currentLatLongDiv.innerHTML += (" Long: " + position.coords.longitude.toFixed(8));
+	
   if (distanceAway <= 5) {
     const speechbubble = document.getElementById("speechBubble");
     speechbubble.innerHTML = markers[level - 1].dialogue;
     speechbubble.style.display = "block";
     arrowEntity.setAttribute('visible', false);
+  }
+	  if (distanceAway > 5) {
+    const speechbubble = document.getElementById("speechBubble");
+    speechbubble.style.display = "none";
   }
 }
 
