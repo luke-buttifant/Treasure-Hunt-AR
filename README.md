@@ -9,7 +9,6 @@ This is an augmented reality application that can be used to play treasure hunt.
 You will need a device with a camera.
 
 ### Installing
-This will not work remotely, you will need to clone the project to your local directory. 
 ```
 Git clone https://github.com/lukebuttifant-lab/lukebuttifant-lab.github.io.git
 ```
