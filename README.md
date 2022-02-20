@@ -6,7 +6,7 @@ AR Treasure Hunt
 This is an augmented reality application that can be used to play treasure hunt. It is created using HTML, CSS and JS.
 
 ### Dependencies
-You will need a device with a camera.
+You will need a mobile device that has a camera
 
 ### Installing
 ```
